@@ -1,8 +1,10 @@
 const router = require('express').Router();
 
-//calling the required service
-const { getPolicies } = require('./user.service');
+const { uploadFile } = require('../../middleware/upload-file')
 
-router.get('/test', getPolicies);
+//calling the required service
+const { uploadCSV } = require('./user.service');
+
+router.post('/upload-csv', uploadFile, uploadCSV)
 
 module.exports = router;
