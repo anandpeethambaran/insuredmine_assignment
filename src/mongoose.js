@@ -6,8 +6,7 @@ module.exports = (app) => {
   mongoose.connect(
     config.mongodb
   ).catch(err => {
-    console.log(err);
-    logger.error(err);
+    logger.error(JSON.stringify(err));
     process.exit(1);
   });
 
