@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "2d4b7aa4-5b58-4a29-9f17-67152a25166a",
+		"name": "insuredmine-tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "upload csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/admin/Downloads/data-sheet.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3030/users/upload-csv",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"users",
+						"upload-csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search policy info with useraname",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/policy/search-policy?name=ko",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"policy",
+						"search-policy"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ko"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get policy with user details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/policy",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users with aggregated policy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add message scheule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\" : \"dummy message 2\",\n    \"date\": \"09-05-2021 02:11:00 PM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/message/add-schedule",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"message",
+						"add-schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/message",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
