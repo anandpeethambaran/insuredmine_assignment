@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-worker src/",
-    "dev": "nodemon --experimental-worker src/"
+    "start": "forever start src/",
+    "dev": "nodemon src/"
   },
   "repository": {
     "type": "git",
@@ -19,13 +19,14 @@
   },
   "homepage": "https://github.com/anandpeethambaran/insuredmine_assignment#readme",
   "dependencies": {
-    "@fast-csv/parse": "^4.3.6",
     "config": "^3.3.6",
     "express": "^4.17.1",
     "fast-csv": "^4.3.6",
     "helmet": "^4.6.0",
     "mongoose": "^6.0.4",
     "multer": "^1.4.3",
+    "node-cron": "^3.0.0",
+    "os-utils": "^0.0.14",
     "winston": "^3.3.3"
   }
 }

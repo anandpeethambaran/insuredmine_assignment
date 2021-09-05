@@ -5,7 +5,7 @@ const { ObjectId } = Schema;
 let modelName = "policy";
 
 const schema = Schema({
-  userId: { type: ObjectId },
+  userId: { type: ObjectId, ref: 'users' },
   category: { type: String },
   policyNo: { type: String },
   startDate: { type: String },

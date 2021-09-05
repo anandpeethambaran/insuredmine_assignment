@@ -4,7 +4,8 @@ const logger = require('../logger')
 exports.handle_server_error = async (error, req) => {
   return new Promise(async (resolve, reject) => {
     try {
-      logger.error(`Endpoint - ${req.originalUrl}[${req.method}]- Error : ${JSON.stringify(error)}`)
+      let errorMessage = error.message !== '' ? JSON.stringify(error.message) : error.msg !== '' ? JSON.stringify(error.message) : 'Error not identified'
+      logger.error(`Endpoint - ${req.originalUrl}[${req.method}]- Error : {message : ${errorMessage}, stack : ${JSON.stringify(error.stack)}}`)
       let errorObj;
       if (!error.errorType || error.errorType !== 'API.Error') {
         errorObj = {
@@ -24,7 +25,6 @@ exports.handle_server_error = async (error, req) => {
           Endpoint: req.originalUrl
         }
       }
-      console.log(errorObj);
       return resolve(errorObj)
     } catch (error) {
       return reject({
@@ -41,6 +41,11 @@ exports.handle_server_error = async (error, req) => {
 exports.buildSuccess = (payload) => {
   return { status: "SUCCESS", ...payload };
 }
+
+exports.buildFailed = (payload) => {
+  return { status: "FAILED", ...payload };
+}
+
 
 exports.CSV_UPLOAD_ERROR = {
   status: 500,
